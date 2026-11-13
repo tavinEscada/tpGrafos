@@ -1,7 +1,7 @@
-from caminhoMinimo import dijkstra
-from grafo import Grafo
-from articulacao import encontra_articulacao, eh_articulacao
-from busca import busca_largura, componentes_conexas, possui_ciclo
+from CaminhoMinimo import dijkstra
+from Grafo import Grafo
+from Articulacao import encontra_articulacao, eh_articulacao
+from Busca import busca_largura, componentes_conexas, possui_ciclo
 
 def menu():
 

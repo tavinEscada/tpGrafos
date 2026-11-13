@@ -1,5 +1,7 @@
 from collections import deque
 
+from Grafo import Grafo
+
 def busca_largura(grafo, inicio):
 
     n = grafo.ordem()

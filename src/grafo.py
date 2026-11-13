@@ -30,6 +30,9 @@ class Grafo:
             self.matriz[v1 - 1][v2 - 1] = peso
             self.matriz[v2 - 1][v1 - 1] = peso
 
+    def get_matriz(self):
+        return self.matriz
+
     def ordem(self):
         return self.ordem_grafo
 
