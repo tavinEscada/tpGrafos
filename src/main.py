@@ -2,6 +2,7 @@ from CaminhoMinimo import dijkstra
 from Grafo import Grafo
 from Articulacao import encontra_articulacao, eh_articulacao
 from Busca import busca_largura, componentes_conexas, possui_ciclo
+from Euler import ciclo_euleriano, hierholzer
 
 def menu():
 
@@ -18,6 +19,7 @@ def menu():
     print("8 - Identificar componentes conexas")
     print("9 - Verificar existência de ciclos")
     print("10 - Calcular caminhos mínimos")
+    print("11 - Análise euleriana")
     print("0 - Sair")
     print("========================================")
 
@@ -110,7 +112,10 @@ while True:
                 print(f" para o vertice", i,  ": distancia =", dStr, "| caminho =", caminhos[i])
 
         print()
-        
+
+    elif opcao == "11":
+        ciclo_euleriano(grafo)
+    
     elif opcao == "0":
 
         print("Programa encerrado.")
