@@ -1,3 +1,5 @@
+from Busca import componentes_conexas
+
 class Grafo:
 
     def __init__(self, arquivo):
@@ -77,4 +79,8 @@ class Grafo:
             if self.matriz[atual][vizinho] != 0 and not visitados[vizinho]:
                 self._dfs_sem_vertice(vizinho, removido, visitados)
 
-    
+    def e_conexo(self):
+        if len(componentes_conexas(self)) != 1:
+            return False
+
+        return True

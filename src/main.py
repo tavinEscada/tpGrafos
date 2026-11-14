@@ -2,7 +2,8 @@ from CaminhoMinimo import dijkstra
 from Grafo import Grafo
 from Articulacao import encontra_articulacao, eh_articulacao
 from Busca import busca_largura, componentes_conexas, possui_ciclo
-from Euler import ciclo_euleriano, hierholzer
+from Euler import ciclo_euleriano
+from ArvoreGeradora import arvore
 
 def menu():
 
@@ -20,6 +21,7 @@ def menu():
     print("9 - Verificar existência de ciclos")
     print("10 - Calcular caminhos mínimos")
     print("11 - Análise euleriana")
+    print("12 - Arvore geradora minima")
     print("0 - Sair")
     print("========================================")
 
@@ -115,6 +117,9 @@ while True:
 
     elif opcao == "11":
         ciclo_euleriano(grafo)
+
+    elif opcao == "12":
+        arvore(grafo)
     
     elif opcao == "0":
 

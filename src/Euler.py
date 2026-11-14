@@ -1,4 +1,3 @@
-from Busca import componentes_conexas
 
 def hierholzer(grafo, vertice_inicio):
     n = grafo.ordem()
@@ -24,7 +23,7 @@ def hierholzer(grafo, vertice_inicio):
 
 def ciclo_euleriano(grafo):
 
-    if len(componentes_conexas(grafo)) != 1:
+    if grafo.e_conexo() == False:
         #nao é conexo
         print("o grafo não possui ciclo euleriano, pois nao é conexo")
         return
@@ -34,7 +33,10 @@ def ciclo_euleriano(grafo):
     for i in range(1, grafo.ordem() + 1):
         if grafo.grau(i) % 2 != 0:
             lista_vertices_impares.append(i)
-            
+
+    #print(len(lista_vertices_impares))
+    #print("impares:", lista_vertices_impares)
+
     if len(lista_vertices_impares) == 2:
         print("o grafo é semi-euleriano e possui o caminho euleriano:")
         #printar o caminho
