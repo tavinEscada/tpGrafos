@@ -1,9 +1,12 @@
-from CaminhoMinimo import dijkstra
-from Grafo import Grafo
-from Articulacao import encontra_articulacao, eh_articulacao
-from Busca import busca_largura, componentes_conexas, possui_ciclo
+import time
+from caminhoMinimo import dijkstra
+from grafo import Grafo
+from articulacao import encontra_articulacao, eh_articulacao
+from busca import busca_largura, componentes_conexas, possui_ciclo
 from Euler import ciclo_euleriano
 from ArvoreGeradora import arvore
+from metricasRede import imprimir_metricas
+from cobertura import cobertura_gulosa, cobertura_heuristica, validar_cobertura
 
 def menu():
 
@@ -22,6 +25,10 @@ def menu():
     print("10 - Calcular caminhos mínimos")
     print("11 - Análise euleriana")
     print("12 - Arvore geradora minima")
+    print("13 - Cobertura mínima gulosa")
+    print("14 - Cobertura mínima heurística")
+    print("15 - Comparar algoritmos")
+    print("16 - Métricas da rede")
     print("0 - Sair")
     print("========================================")
 
@@ -120,6 +127,45 @@ while True:
 
     elif opcao == "12":
         arvore(grafo)
+
+    elif opcao == "13":
+        resultado = cobertura_gulosa(grafo)
+        print("Cobertura mínima gulosa:", resultado)
+        print("Quantidade de vértices:", len(resultado))
+
+    elif opcao == "14":
+        cobertura = cobertura_heuristica(grafo)
+        print("Cobertura heurística:", cobertura)
+        print("Quantidade de vértices:", len(cobertura))
+
+    elif opcao == "15":
+
+        inicio = time.perf_counter()
+        cobertura_g = cobertura_gulosa(grafo)
+        tempo_guloso = time.perf_counter() - inicio
+
+        inicio = time.perf_counter()
+        cobertura_h = cobertura_heuristica(grafo)
+        tempo_heuristica = time.perf_counter() - inicio
+
+        print("\n===== COMPARAÇÃO DOS ALGORITMOS =====")
+
+        print("\nAlgoritmo Guloso:")
+        print("Cobertura:", cobertura_g)
+        print("Quantidade de vértices:", len(cobertura_g))
+        print("Tempo de execução:", tempo_guloso, "segundos")
+
+        print("\nAlgoritmo Heurístico:")
+        print("Cobertura:", cobertura_h)
+        print("Quantidade de vértices:", len(cobertura_h))
+        print("Tempo de execução:", tempo_heuristica, "segundos")
+        print("\nValidação das coberturas:")
+        print("Guloso:", "Válida" if validar_cobertura(grafo, cobertura_g) else "Inválida")
+        print("Heurístico:", "Válida" if validar_cobertura(grafo, cobertura_h) else "Inválida")
+
+    elif opcao == "16":
+
+        imprimir_metricas(grafo)
     
     elif opcao == "0":
 

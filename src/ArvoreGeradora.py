@@ -1,4 +1,4 @@
-from Grafo import Grafo
+from grafo import Grafo
 
 def prim(grafo):
     n = grafo.ordem()

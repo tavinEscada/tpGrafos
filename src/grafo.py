@@ -1,4 +1,4 @@
-from Busca import componentes_conexas
+from busca import componentes_conexas
 
 class Grafo:
 
@@ -10,8 +10,7 @@ class Grafo:
 
     def ler_grafo(self, arquivo):
 
-        arquivo = "testes/" + arquivo
-
+        arquivo = "../testes/" + arquivo
         with open(arquivo, "r") as f:
             linhas = f.readlines()
 
