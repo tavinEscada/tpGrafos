@@ -9,7 +9,7 @@ import sys
 
 PASTA = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PASTA / "src"))
-os.chdir(PASTA)
+os.chdir(PASTA / "src")
 
 from grafo import Grafo
 from busca import busca_largura, componentes_conexas, possui_ciclo
